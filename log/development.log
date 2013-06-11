@@ -1,0 +1,519 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.7ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "author_id" integer) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone_number" varchar(255), "email" varchar(255), "website" varchar(255), "twitter" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "author_name" varchar(255), "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130408190802')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120107162506')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120108231244')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120108231255')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120108231301')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130408172034')[0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "esteban_rosenbaum@schmeler.name"], ["name", "Esteban Rosenbaum"], ["phone_number", "1-578-240-4068 x828"], ["twitter", "esteban_rosenbaum"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.cummerata.com"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "wintheiser.darrion@simonis.org"], ["name", "Darrion Wintheiser"], ["phone_number", "418.983.8019 x9609"], ["twitter", "darrion_wintheiser"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.skiles.biz"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "wyman.freddie@denesik.org"], ["name", "Freddie Wyman"], ["phone_number", "795-058-7036 x534"], ["twitter", "wyman_freddie"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.osinski.org"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "miss_trever_haley@legros.info"], ["name", "Miss Trever Haley"], ["phone_number", "451.510.2663"], ["twitter", "trever_haley_miss"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.farrell.info"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "lang.zakary@miller.net"], ["name", "Zakary Lang"], ["phone_number", "(374)053-8285 x862"], ["twitter", "zakary_lang"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.walker.biz"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "deborah_bednar_mr@beiermills.net"], ["name", "Mr. Deborah Bednar"], ["phone_number", "(558)955-9885 x497"], ["twitter", "deborah_bednar_mr"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.eichmann.com"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "koby.littel@rolfson.com"], ["name", "Koby Littel"], ["phone_number", "1-137-698-7535 x77464"], ["twitter", "koby_littel"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.corwin.biz"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "koelpin_mrs_curtis@veum.name"], ["name", "Mrs. Curtis Koelpin"], ["phone_number", "321.532.0950"], ["twitter", "mrs_koelpin_curtis"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.jast.name"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "russel_quinten@prosacco.biz"], ["name", "Quinten Russel"], ["phone_number", "225.425.3557"], ["twitter", "russel_quinten"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.collierheel.com"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "authors" ("created_at", "email", "name", "phone_number", "twitter", "updated_at", "website") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["email", "mateo.roberts@hane.biz"], ["name", "Mateo Roberts"], ["phone_number", "345.286.2195 x832"], ["twitter", "mateo_roberts"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["website", "http://www.hicklebaumbach.info"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_0"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_1"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_2"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_3"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_4"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_5"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_6"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_7"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_8"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["name", "tag_9"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" [0m
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Tempore Explicabo Et Aut Eius Voluptas 0' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author_id", 3], ["body", "Ullam rerum vel blanditiis ratione consectetur nihil. Voluptatibus provident molestiae eaque nesciunt saepe aut. Fugit aut deleniti."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Tempore Explicabo Et Aut Eius Voluptas 0"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 1 AND "taggings"."tag_id" = 9) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 1], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 9], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 1 AND "taggings"."tag_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 1], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 2], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 1 AND "taggings"."tag_id" = 7) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 1], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 7], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 1 AND "taggings"."tag_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 1], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 1], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 1 AND "taggings"."tag_id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 1], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 6], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 1 AND "taggings"."tag_id" = 10) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 1], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 10], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Tempore Explicabo Et Aut Eius Voluptas 0' AND "articles"."id" != 1) LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  UPDATE "articles" SET "created_at" = '2013-05-28 15:27:21.286464', "updated_at" = '2013-06-11 00:27:21.334394' WHERE "articles"."id" = 1
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 1], ["author_name", "Vern Eichmann"], ["body", "Iste et delectus ducimus nesciunt. Et perferendis maxime fuga nisi exercitationem. Quae doloribus dignissimos quis iste quia et dolor."], ["created_at", Sat, 01 Jun 2013 14:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 1], ["author_name", "Tabitha Mohr DVM"], ["body", "Sit harum omnis tenetur dicta esse dolore aut. Id facere et aut culpa distinctio laborum eligendi. Alias inventore eum tenetur. Minus exercitationem nam vel. Deleniti velit sed quaerat."], ["created_at", Fri, 31 May 2013 01:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 1], ["author_name", "Enid Osinski IV"], ["body", "Rerum facilis mollitia reprehenderit. Neque repellat dolor et. Voluptates esse eveniet magnam ab impedit. Aut magnam omnis doloremque id. Fugit aspernatur et ut."], ["created_at", Sat, 01 Jun 2013 08:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mAuthor Load (0.5ms)[0m  [1mSELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Commodi Expedita Eligendi Repellat Fugit Fugiat 1' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author_id", 3], ["body", "Voluptatem placeat qui quis officia inventore. Exercitationem fugit quod quos nihil. Sit cupiditate quibusdam nisi excepturi debitis officia."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Commodi Expedita Eligendi Repellat Fugit Fugiat 1"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 2
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 6) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 6], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 4) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 4], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.0ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 2) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 2], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.0ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 7) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 7], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.0ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 10) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 10], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.0ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 5) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 8) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 2 AND "taggings"."tag_id" = 9) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 2], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 9], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Commodi Expedita Eligendi Repellat Fugit Fugiat 1' AND "articles"."id" != 2) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "articles" SET "created_at" = '2013-06-02 15:27:21.364185', "updated_at" = '2013-06-11 00:27:21.377644' WHERE "articles"."id" = 2[0m
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 2], ["author_name", "Hoyt Purdy"], ["body", "Harum omnis exercitationem incidunt delectus pariatur. Impedit voluptas sunt. Illo et at magnam. Corrupti deleniti quia esse in adipisci voluptatem."], ["created_at", Wed, 05 Jun 2013 13:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 2], ["author_name", "Katarina Vandervort"], ["body", "Nihil exercitationem commodi numquam. Quia enim officiis. Sint dolores soluta quam sit quasi. Id natus repellat saepe sunt sapiente."], ["created_at", Thu, 06 Jun 2013 01:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mAuthor Load (0.5ms)[0m  [1mSELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Est Est Quia Incidunt Dolor Placeat 2' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author_id", 1], ["body", "Quasi assumenda voluptates molestiae. Minima sed sequi quia id dolor exercitationem et. Quo vero nisi quis assumenda. Delectus necessitatibus velit accusantium aut sit cum."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Est Est Quia Incidunt Dolor Placeat 2"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 3
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mTagging Exists (0.3ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 3 AND "taggings"."tag_id" = 8) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 3 AND "taggings"."tag_id" = 7) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 7], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 3 AND "taggings"."tag_id" = 10) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 10], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 3 AND "taggings"."tag_id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 1], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 3 AND "taggings"."tag_id" = 4) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 4], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 3 AND "taggings"."tag_id" = 5) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 3], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Est Est Quia Incidunt Dolor Placeat 2' AND "articles"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "articles" SET "created_at" = '2013-06-04 05:27:21.389034', "updated_at" = '2013-06-11 00:27:21.407515' WHERE "articles"."id" = 3[0m
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 3], ["author_name", "Ms. Stacy Gleason"], ["body", "Ratione numquam vel aut laudantium quasi voluptas. Ut saepe similique maxime. Praesentium blanditiis facere. Consequatur maiores dolor cupiditate vel. Amet recusandae sed reprehenderit odio distinctio."], ["created_at", Tue, 04 Jun 2013 13:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 3], ["author_name", "Jesus Fay"], ["body", "Distinctio libero exercitationem ipsam ad ab est. Voluptatem culpa est beatae. Architecto praesentium quasi velit dolores vel placeat. Enim accusamus modi. Quis incidunt expedita ut explicabo architecto consequatur nobis."], ["created_at", Sat, 08 Jun 2013 02:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 3], ["author_name", "Loraine Mante"], ["body", "Magni qui ut. Ut aut ullam. Aliquam eum est illum tenetur et autem. Et quia voluptatem. Magni voluptas saepe sint sapiente ex totam."], ["created_at", Tue, 04 Jun 2013 19:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 3], ["author_name", "Felicita Dare PhD"], ["body", "Voluptatem harum dolorum aut quo eveniet illo. Amet rem quam hic veniam numquam. Totam et magnam qui et odio. Enim tenetur commodi rerum libero quibusdam."], ["created_at", Tue, 04 Jun 2013 07:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 3], ["author_name", "Richard Borer"], ["body", "Omnis reiciendis repellat ratione amet similique voluptates sapiente. Ex tenetur ad voluptate ducimus. Eligendi sit dicta consequatur inventore aut sint."], ["created_at", Thu, 06 Jun 2013 06:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 3], ["author_name", "Noah Waters"], ["body", "Aspernatur recusandae sint veniam. Cum dolores consequatur. Laborum commodi est non libero non ut labore."], ["created_at", Wed, 05 Jun 2013 09:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 3], ["author_name", "Ines Mraz"], ["body", "Adipisci exercitationem quam. Harum vero sed commodi enim. Nihil distinctio occaecati. Ea blanditiis veniam. Commodi soluta et omnis consequatur."], ["created_at", Wed, 05 Jun 2013 17:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 3], ["author_name", "Janick Waters III"], ["body", "Ea in reiciendis eius. Assumenda soluta fugiat. Qui blanditiis voluptatibus quisquam."], ["created_at", Wed, 05 Jun 2013 21:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 3], ["author_name", "Robb Mitchell"], ["body", "Quae explicabo illum eos animi dolores ab. Nam voluptatem ullam aut iusto praesentium recusandae omnis. Repellat quia occaecati rerum et qui."], ["created_at", Wed, 05 Jun 2013 03:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mAuthor Load (0.4ms)[0m  SELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Voluptas Eaque Beatae Blanditiis Ipsam Quia 3' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author_id", 2], ["body", "Consequuntur debitis similique quidem eum provident. Maiores sit quisquam. Iusto quisquam voluptates repellendus quis sed at voluptas. Nesciunt sed quas voluptates est."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Voluptas Eaque Beatae Blanditiis Ipsam Quia 3"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 4[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 4 AND "taggings"."tag_id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 4], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Voluptas Eaque Beatae Blanditiis Ipsam Quia 3' AND "articles"."id" != 4) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "articles" SET "created_at" = '2013-05-29 15:27:21.426828', "updated_at" = '2013-06-11 00:27:21.435188' WHERE "articles"."id" = 4
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 4], ["author_name", "Miss Virgil Thompson"], ["body", "Sint corrupti id explicabo accusamus. Adipisci et quas alias hic quae. Voluptas placeat suscipit et sunt minus. At deleniti accusamus ut dolorem voluptate laboriosam cumque."], ["created_at", Fri, 31 May 2013 17:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 4], ["author_name", "Easter Wiegand"], ["body", "Id id iusto. Voluptas aut quis nostrum aut doloremque atque a. Vel nostrum veritatis nobis."], ["created_at", Thu, 30 May 2013 07:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mAuthor Load (0.1ms)[0m  SELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Eum Ut Assumenda Autem Et Perferendis 4' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author_id", 9], ["body", "Sed eligendi sunt nam excepturi neque blanditiis modi. Eveniet consequatur eos natus id voluptas officia. In qui id. Quisquam provident perspiciatis rerum fugiat. Autem totam esse voluptates est commodi voluptatem consequuntur."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Eum Ut Assumenda Autem Et Perferendis 4"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mTag Load (0.3ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 5[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mTagging Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 5 AND "taggings"."tag_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 5], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 2], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 5 AND "taggings"."tag_id" = 8) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 5], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 5 AND "taggings"."tag_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 5], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 4], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 5 AND "taggings"."tag_id" = 9) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 5], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 9], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Eum Ut Assumenda Autem Et Perferendis 4' AND "articles"."id" != 5) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "articles" SET "created_at" = '2013-05-27 19:27:21.446939', "updated_at" = '2013-06-11 00:27:21.463190' WHERE "articles"."id" = 5
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Wilton Windler"], ["body", "Nesciunt et dolor veniam qui. Vero incidunt voluptatem. Dolor nam ipsa. Nemo iure cum sit. Excepturi ut repudiandae at."], ["created_at", Wed, 29 May 2013 08:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 5], ["author_name", "Domenic Rice"], ["body", "Qui unde autem quibusdam vitae quod quo consequatur. Ut rerum voluptatum repellat consequatur asperiores illum. Vitae deserunt tempora eaque rem reiciendis. Voluptatem soluta est. Inventore rerum natus sunt nam rem laboriosam."], ["created_at", Wed, 29 May 2013 07:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Zane Huels V"], ["body", "Ut dolorem velit reprehenderit. Magni laborum atque ut eaque aut tempora et. Tempore pariatur rerum impedit."], ["created_at", Mon, 27 May 2013 22:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 5], ["author_name", "Mireya Swift"], ["body", "Ducimus nisi quia. Voluptatum nemo dolorem ea animi. Vel eum est voluptates. Illum adipisci nulla autem et et mollitia reiciendis. Eaque ut expedita temporibus."], ["created_at", Thu, 30 May 2013 19:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Ethyl Rippin"], ["body", "Magnam eveniet ratione nisi corporis. Expedita minus a quidem modi quisquam. Earum sed ut exercitationem."], ["created_at", Tue, 28 May 2013 04:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 5], ["author_name", "Saige Will"], ["body", "Qui ut dolor sint aut excepturi omnis. Est quia est aperiam praesentium sit error quam. Est reiciendis sunt fuga aspernatur eveniet placeat ex. Commodi necessitatibus ut fugiat rem. Animi sit quibusdam at illo."], ["created_at", Tue, 28 May 2013 15:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Jermain Lang"], ["body", "Et voluptatem officiis ipsum at ab. Esse temporibus occaecati minima. Vitae ipsam quo nulla architecto."], ["created_at", Mon, 27 May 2013 21:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 5], ["author_name", "Westley Bogan"], ["body", "Sint ad ea debitis ut. Non aperiam consequatur aut ratione ducimus. Similique eos qui aut omnis doloribus. Dolores recusandae eligendi reiciendis alias voluptas quidem possimus."], ["created_at", Tue, 28 May 2013 21:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Ms. Elenor Ullrich"], ["body", "Officiis qui ratione expedita voluptatum. Ab dicta voluptatum corporis nemo totam. Dolor enim odit tempora excepturi nemo magni eos."], ["created_at", Thu, 30 May 2013 14:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 5], ["author_name", "Camron Koepp"], ["body", "Veniam aspernatur cumque error ratione. Illo est laborum reprehenderit omnis. Et ipsa est. Iure quidem adipisci ut soluta sit cumque aut. Sunt minus est fuga."], ["created_at", Thu, 30 May 2013 22:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Larry Moore"], ["body", "Nulla dolorem esse totam delectus vero aut. Dignissimos sint sapiente ipsum unde in eaque. Perferendis facere maxime nihil qui rerum iste et. Vel ea doloribus voluptatem soluta ut adipisci."], ["created_at", Tue, 28 May 2013 21:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 5], ["author_name", "Frederick Kshlerin"], ["body", "Hic et expedita eos at libero deserunt. Facilis fugit aperiam aliquid sit. Vel et sint quia ut ut reiciendis. Qui quisquam magni provident dolor."], ["created_at", Wed, 29 May 2013 00:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 5], ["author_name", "Mrs. Skylar Kub"], ["body", "Quod sit impedit non. Maxime excepturi voluptate. Et voluptatem voluptatum. Culpa modi aut velit veritatis repellendus voluptatibus reprehenderit."], ["created_at", Thu, 30 May 2013 05:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Et Laborum Et Velit Consequatur Rerum 5' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author_id", 4], ["body", "Sit nihil qui saepe est. Optio sit molestiae repellendus rerum sunt animi consequatur. Qui sunt similique. Sint eum ad animi veritatis voluptate tempore. Et quas qui rerum."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Et Laborum Et Velit Consequatur Rerum 5"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 6
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 6 AND "taggings"."tag_id" = 10) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 10], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 6 AND "taggings"."tag_id" = 5) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 6], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Et Laborum Et Velit Consequatur Rerum 5' AND "articles"."id" != 6) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "articles" SET "created_at" = '2013-05-26 18:27:21.511225', "updated_at" = '2013-06-11 00:27:21.517708' WHERE "articles"."id" = 6[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 6], ["author_name", "Donnell Kunde"], ["body", "Et eaque quam repudiandae consequatur dolores. Modi aut illo eos quia possimus similique aliquid. Tempora aut vero porro. Quae enim fugiat quia quo perspiciatis."], ["created_at", Thu, 30 May 2013 12:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 6], ["author_name", "Megane Schinner"], ["body", "Et expedita vel odio. Alias aliquam atque eius et in iste. Corporis voluptates quibusdam delectus neque tempore illo placeat. Repellendus labore est commodi vitae sequi."], ["created_at", Sun, 26 May 2013 23:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 6], ["author_name", "Johnnie Deckow"], ["body", "Facere nihil sunt sequi tenetur. Molestias esse nisi laudantium eos. Ea corrupti dolores perferendis libero quaerat ratione sint. Tempore odio dolorem."], ["created_at", Wed, 29 May 2013 21:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 6], ["author_name", "Mr. Alize Ryan"], ["body", "Ut aut est. Unde quam ipsum maxime voluptatem. Autem cupiditate quod saepe fugit autem est."], ["created_at", Mon, 27 May 2013 10:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 6], ["author_name", "Stevie Robel III"], ["body", "Qui iste consequatur exercitationem voluptatem temporibus aut. Qui fugiat voluptas assumenda. Veritatis sed et id velit. Quo quidem perspiciatis omnis numquam rerum molestiae voluptas."], ["created_at", Wed, 29 May 2013 20:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 6], ["author_name", "Violette Rolfson"], ["body", "Quae asperiores ut odio ut nulla id nam. Quaerat illo velit quis assumenda debitis sunt rerum. Maiores nobis in occaecati nulla fugit ullam."], ["created_at", Wed, 29 May 2013 19:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 6], ["author_name", "Keeley Cronin"], ["body", "Similique alias autem. Velit cumque qui veritatis vel. Quod consectetur quia. Occaecati recusandae repudiandae esse labore sed sunt tempore."], ["created_at", Mon, 27 May 2013 00:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 6], ["author_name", "Hellen Maggio DVM"], ["body", "Ipsum nostrum corporis aut. Molestiae nemo quaerat voluptatem culpa earum. In sequi commodi voluptatum. At ea explicabo veniam. Explicabo atque ut quasi ab minima."], ["created_at", Mon, 27 May 2013 22:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Voluptatem Ea Sunt Quo Deleniti Corporis 6' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author_id", 2], ["body", "Ut consequuntur officia. Consequuntur ut omnis in rerum natus placeat autem. Cum velit maiores cumque."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Voluptatem Ea Sunt Quo Deleniti Corporis 6"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.2ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 7
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 7 AND "taggings"."tag_id" = 8) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 7], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Voluptatem Ea Sunt Quo Deleniti Corporis 6' AND "articles"."id" != 7) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "articles" SET "created_at" = '2013-05-28 01:27:21.540213', "updated_at" = '2013-06-11 00:27:21.546573' WHERE "articles"."id" = 7[0m
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 7], ["author_name", "Mrs. Jarrett Reilly"], ["body", "Et recusandae temporibus. Omnis quis blanditiis deserunt nemo quidem doloribus. Consequatur sed natus. Voluptatum sit pariatur ab accusantium. Sequi laborum sit quia."], ["created_at", Thu, 30 May 2013 18:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 7], ["author_name", "Frederik Homenick"], ["body", "Libero eveniet minima est. Est ullam quaerat est et id rerum. Et iste et consequuntur. Hic ut nihil placeat doloremque. Esse sit sed et accusantium eligendi."], ["created_at", Sat, 01 Jun 2013 00:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 7], ["author_name", "Reinhold Larkin"], ["body", "Aut qui est a atque aut. Unde consectetur et est dicta. Omnis eius quis repudiandae. Aut a est temporibus. Autem sed eveniet consequatur."], ["created_at", Wed, 29 May 2013 23:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 7], ["author_name", "Mattie Becker I"], ["body", "Assumenda ut molestiae sapiente quo rerum totam minus. Dolorem nihil vero vel repellendus neque soluta animi. Totam voluptas qui autem non consequuntur ut reprehenderit. Architecto deserunt perferendis et. Quae et voluptas quisquam aperiam."], ["created_at", Wed, 29 May 2013 06:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Excepturi Aut Est Rem Ut Autem 7' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author_id", 7], ["body", "Voluptas velit suscipit unde veritatis et qui. Exercitationem incidunt modi aliquam. Autem explicabo perferendis delectus. Omnis hic quam consequatur vero quo. Dolores voluptatibus sunt expedita quos eum possimus."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Excepturi Aut Est Rem Ut Autem 7"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 8
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTagging Exists (0.2ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 8 AND "taggings"."tag_id" = 3) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 3], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 8 AND "taggings"."tag_id" = 9) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 9], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 8 AND "taggings"."tag_id" = 2) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 2], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 8 AND "taggings"."tag_id" = 5) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 8 AND "taggings"."tag_id" = 6) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 6], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 8 AND "taggings"."tag_id" = 8) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 8], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Excepturi Aut Est Rem Ut Autem 7' AND "articles"."id" != 8) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "articles" SET "created_at" = '2013-06-03 06:27:21.560724', "updated_at" = '2013-06-11 00:27:21.593278' WHERE "articles"."id" = 8[0m
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 8], ["author_name", "Mr. Frederick Jaskolski"], ["body", "Voluptas et omnis distinctio ea. Aliquid nam ducimus occaecati eveniet. Quaerat est ut. Qui dolorem in voluptatem sed ad illum."], ["created_at", Tue, 04 Jun 2013 08:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 8], ["author_name", "Daisy Kohler"], ["body", "Aut et officiis. Architecto assumenda omnis quasi. Rerum voluptatem excepturi corporis atque nesciunt distinctio. Optio quis esse expedita. Animi provident maxime adipisci praesentium."], ["created_at", Mon, 03 Jun 2013 20:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 8], ["author_name", "Angeline Effertz"], ["body", "Sunt a nam repudiandae incidunt ad. Ut voluptates velit modi soluta sint. Iste nam quae. Et facere architecto fuga rerum et voluptas aut."], ["created_at", Thu, 06 Jun 2013 12:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 8], ["author_name", "Lolita Will"], ["body", "Cum maiores temporibus non impedit. Ut ab nam impedit et quod adipisci. Soluta vero et. Magnam aut amet."], ["created_at", Wed, 05 Jun 2013 20:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 8], ["author_name", "Caleigh Harvey"], ["body", "Qui ea neque eius voluptas veritatis aspernatur. Ab laboriosam aliquam dolores. Nihil nesciunt repudiandae accusantium."], ["created_at", Thu, 06 Jun 2013 20:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 8], ["author_name", "Elena West I"], ["body", "Illo corrupti quis. Voluptate itaque fugit sint doloremque harum dolores. Et aut iusto. Aut et eos soluta autem fugiat similique."], ["created_at", Mon, 03 Jun 2013 22:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 8], ["author_name", "Douglas Cummings"], ["body", "Non aut sed architecto eius omnis. Qui illo sit nihil dignissimos officia. Fuga omnis eligendi. Facere consequatur et et est natus."], ["created_at", Tue, 04 Jun 2013 02:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 8], ["author_name", "Elsie Zulauf"], ["body", "Tenetur ipsum voluptatem dolore fuga qui. Omnis nam impedit est. Veniam ipsam omnis. Repellendus exercitationem omnis reprehenderit consequuntur. Beatae reiciendis dolore."], ["created_at", Wed, 05 Jun 2013 16:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 8], ["author_name", "Isabella Pouros"], ["body", "Et magni laborum amet. Consectetur unde labore nulla quos quae. Rerum enim mollitia quo. Ut inventore dolorem voluptatem quae."], ["created_at", Tue, 04 Jun 2013 06:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 8], ["author_name", "Brain Gleichner"], ["body", "Eligendi nisi perferendis ut aut quam sed. Repellendus saepe minus qui iusto. Perspiciatis recusandae eius mollitia animi nobis sit. Qui quo ex exercitationem explicabo."], ["created_at", Thu, 06 Jun 2013 09:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 8], ["author_name", "Kian Doyle"], ["body", "Autem accusantium at cupiditate. Aut aut molestias ducimus ut necessitatibus omnis quas. Quidem pariatur molestias. Numquam saepe maxime dolorem ratione. Libero et laboriosam."], ["created_at", Thu, 06 Jun 2013 06:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 8], ["author_name", "Laverna Jenkins"], ["body", "Cupiditate id dolores aperiam quia quia. Eos eaque et numquam aut sapiente. Id in magni molestias."], ["created_at", Thu, 06 Jun 2013 08:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mAuthor Load (0.2ms)[0m  [1mSELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Deserunt Et Iure Maiores Id Reiciendis 8' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["author_id", 8], ["body", "Sint minus provident. Aut nobis suscipit cumque ipsa dolorem odit. Minus suscipit est dolores veritatis fugit necessitatibus et."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Deserunt Et Iure Maiores Id Reiciendis 8"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mTag Load (0.1ms)[0m  SELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 9
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 6) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 6], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 8) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 4) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 4], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 3) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 3], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 7) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 7], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 10) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 10], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 1], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 9) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 9], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 2) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 2], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35mTagging Exists (0.1ms)[0m  SELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 9 AND "taggings"."tag_id" = 5) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["article_id", 9], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Deserunt Et Iure Maiores Id Reiciendis 8' AND "articles"."id" != 9) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mUPDATE "articles" SET "created_at" = '2013-06-06 12:27:21.624507', "updated_at" = '2013-06-11 00:27:21.645637' WHERE "articles"."id" = 9[0m
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 9], ["author_name", "Brando Tremblay III"], ["body", "Quidem nobis dolor illum in tempora optio numquam. Iusto officiis culpa quam id. Odit modi enim praesentium. Ratione fuga et. Ut totam consequatur eveniet reiciendis."], ["created_at", Mon, 10 Jun 2013 09:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 9], ["author_name", "Elise Pagac"], ["body", "Fugiat quo velit minus consequatur quasi. Tempore quo voluptate at. Velit quia sint quo delectus."], ["created_at", Mon, 10 Jun 2013 03:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 9], ["author_name", "Evans Steuber"], ["body", "Voluptatem quasi reiciendis rem et labore quaerat. A consequatur voluptate non voluptatem repellat. Necessitatibus at magnam quo adipisci placeat. Vel reiciendis possimus aut atque impedit."], ["created_at", Sat, 08 Jun 2013 18:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mAuthor Load (0.2ms)[0m  SELECT "authors".* FROM "authors" ORDER BY RANDOM() LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT 1 AS one FROM "articles" WHERE "articles"."title" = 'Repellat Aperiam Non Eveniet Voluptates Et 9' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "articles" ("author_id", "body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["author_id", 4], ["body", "Vel suscipit repudiandae ab voluptatibus possimus. Commodi maiores expedita praesentium qui recusandae facere. Sunt error non architecto reprehenderit non nemo. Eum at est dicta voluptates aperiam."], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["title", "Repellat Aperiam Non Eveniet Voluptates Et 9"], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mTag Load (0.1ms)[0m  [1mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = 10[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 3) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 3], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 7) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 7], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 4], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 6], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 5], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 1], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 2], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 10) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 10], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36mTagging Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "taggings" WHERE ("taggings"."article_id" = 10 AND "taggings"."tag_id" = 8) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "taggings" ("article_id", "created_at", "tag_id", "updated_at") VALUES (?, ?, ?, ?)  [["article_id", 10], ["created_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00], ["tag_id", 8], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "articles" WHERE ("articles"."title" = 'Repellat Aperiam Non Eveniet Voluptates Et 9' AND "articles"."id" != 10) LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  UPDATE "articles" SET "created_at" = '2013-05-28 23:27:21.655578', "updated_at" = '2013-06-11 00:27:21.704089' WHERE "articles"."id" = 10
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 10], ["author_name", "Kim Littel"], ["body", "Et et in quasi quidem aut dicta placeat. Eum et nemo delectus et quae placeat. Eos aperiam ea facilis tenetur sed et. Cupiditate molestiae enim. Ullam doloremque repellat qui consequuntur eum amet."], ["created_at", Thu, 30 May 2013 13:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 10], ["author_name", "Miss Joanny Bartoletti"], ["body", "Ad ipsa dolor in ut fugiat. Ducimus veniam dolores. Minima doloremque modi ipsa consequuntur est."], ["created_at", Thu, 30 May 2013 08:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 10], ["author_name", "Jesus Walter"], ["body", "Ut placeat soluta. Excepturi ad nemo saepe. Ex veritatis provident vero quibusdam nulla quis. Tenetur et earum numquam fugiat. Beatae sapiente ab fugiat et velit."], ["created_at", Fri, 31 May 2013 04:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 10], ["author_name", "Kenton Prohaska"], ["body", "Voluptatem earum aspernatur qui sed animi officiis. Qui consectetur error nihil sed. Vel delectus iusto. Voluptatum nemo deserunt iste corrupti delectus. Odio eius voluptatum porro aliquid aut cumque accusantium."], ["created_at", Fri, 31 May 2013 03:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 10], ["author_name", "Shakira Zieme III"], ["body", "Dolor modi voluptatibus ex quod inventore quisquam. In quo quis rerum sequi qui recusandae non. Illum est non sed. Tempora hic amet eveniet et qui et."], ["created_at", Wed, 29 May 2013 21:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 10], ["author_name", "Jay Kshlerin"], ["body", "Eaque molestiae ipsum nostrum dolor necessitatibus veritatis sed. Rem et aspernatur dolores tenetur. Harum fugit in sequi ea laudantium."], ["created_at", Sat, 01 Jun 2013 12:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 10], ["author_name", "Ezra Stark"], ["body", "Voluptatem nesciunt ut officiis est aut. Dicta rerum aut accusamus. Atque excepturi earum. Et tempora et aut hic. Qui repellat et quae rem accusamus."], ["created_at", Thu, 30 May 2013 13:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 10], ["author_name", "Bernita Rosenbaum"], ["body", "Et laborum temporibus nisi adipisci odio sit. Occaecati dolorum at non nam corrupti inventore maxime. Alias provident magnam maiores dolores nesciunt ut repudiandae. Optio quis sed esse praesentium nostrum ab. Distinctio praesentium earum et voluptatem veniam sit."], ["created_at", Thu, 30 May 2013 14:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["article_id", 10], ["author_name", "Teresa Huel"], ["body", "Voluptatem perspiciatis neque quam reprehenderit a laboriosam. Nostrum quaerat dolor possimus voluptates voluptatum animi ad. Dolores vitae autem blanditiis quaerat. Molestiae occaecati minima beatae blanditiis non. Ab delectus qui fugiat corrupti consequatur sint doloremque."], ["created_at", Sat, 01 Jun 2013 01:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "comments" ("article_id", "author_name", "body", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["article_id", 10], ["author_name", "Mrs. Felicity Braun"], ["body", "Et porro incidunt saepe sit itaque voluptatum. Et qui ullam quis provident rem. Rem eaque labore et molestiae et. Dolores veniam alias et. Vel aut dignissimos excepturi illum."], ["created_at", Fri, 31 May 2013 22:27:21 UTC +00:00], ["updated_at", Tue, 11 Jun 2013 00:27:21 UTC +00:00]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (2354.8ms)[0m  [1mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "author_id" integer) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "authors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone_number" varchar(255), "email" varchar(255), "website" varchar(255), "twitter" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "author_name" varchar(255), "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer, "tag_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130408190802')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120107162506')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120108231244')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20120108231255')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120108231301')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130408172034')
